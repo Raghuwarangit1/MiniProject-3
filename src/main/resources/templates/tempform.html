@@ -1,0 +1,42 @@
+<html  xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1 style="color:red ;text-align:center" >WELCOME TO USERACCOUNTS</h1>
+
+ <form  th:action="@{/confirm}" method="POST" th:object="${tp}">
+<table>
+<tr>
+<th>mail-id:</th>
+<td><input type="email" th:field="*{email}" required="required" readonly="readonly"/></td>
+</tr>
+<tr>
+<th>ENTER TEMP-PASS:</th>
+<td><input th:field="*{tempPass}"  required="required"/></td>
+</tr>
+<tr>
+<th>ENTER NEW PASS:</th>
+<td><input th:field="*{newPass}" required="required"  /></td>
+</tr>
+<tr>
+<th>Conforim Pass:</th>
+<td><input  th:field="*{cfrmpass}" required="required"  /></td>
+</tr>
+<tr>
+<td><input type="submit" value="SUBMIT" class="btn btn-primary" />
+<input type="reset" value="RESET" class="btn btn-danger"  />
+</td>
+</tr>
+
+</table>
+<p th:text="${msg}" class="text-success"></p>
+</form>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>

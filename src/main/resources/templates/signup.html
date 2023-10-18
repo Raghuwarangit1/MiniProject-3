@@ -1,0 +1,79 @@
+<html  xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1 style="color:red ;text-align:center" >WELCOME TO USERACCOUNTS</h1>
+
+ <form  th:action="@{/signups}" method="POST" th:object="${user}">
+<table>
+<tr>
+<td><input type="hidden" th:field="*{uId}" /></td></tr>
+<tr>
+<th>USER FIRST-NAME:</th>
+<td><input type="text" th:field="*{firstName}" required="required"/></td>
+</tr>
+<tr>
+<th>USER LAST-NAME:</th>
+<td><input th:field="*{lastName}"  required="required"/></td>
+</tr>
+<tr>
+<th>USER EMAIL-ID</th>
+<td><input type="email" th:field="*{email}" required="required"  /></td>
+</tr>
+<tr>
+<th>USER PHON-NUMBER</th>
+<td><input type="number" th:field="*{phNo}" required="required" maxlength="10"  /></td>
+</tr>
+<tr>
+<tr>
+<th >SELECT GENDER</th>
+<td><input type="radio" th:field="*{gender}" value="MALE" checked="checked"/> MALE
+<input type="radio" th:field="*{gender}" value="FEMALE" /> FEMALE
+<input type="radio" th:field="*{gender}" value="OTHERS" /> -OTHERS 
+</tr>
+<tr>
+<th>USER :DATE OF BIRTH</th>
+<td><input type="date" th:field="*{dob}"  required="required"/>
+<input type="hidden"  th:field="*{status}"  /></td></tr>
+<tr>
+ <td><label>Select country:</label>
+      
+      <select   th:field=*{country} class="text-success">
+	<option value="">-Status-</option>
+  <option th:each="p:${countries}" th:value="${p}" th:text="${p}" ></option>
+ 
+</select></td></tr>
+<tr>
+ <td><label>Select state:</label>
+      
+      <select   th:field=*{state} class="text-success">
+	<option value="">-Status-</option>
+  <option th:each="p:${states}" th:value="${p}" th:text="${p}" ></option>
+ 
+</select></td></tr>
+<tr>
+ <td><label >Select city:</label>
+      
+      <select   th:field=*{city} class="text-success">
+	<option value="">-Status-</option>
+  <option th:each="p:${cities}" th:value="${p}" th:text="${p}" ></option>
+ 
+</select></td></tr>
+<tr>
+<td><input type="submit" value="SUBMIT" class="btn btn-primary" />
+<input type="reset" value="RESET" class="btn btn-danger"  />
+</td>
+</tr>
+
+</table>
+
+</form>
+<p th:text="${msg}" class="text-success"></p>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>
